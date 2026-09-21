@@ -25,7 +25,7 @@ equil_pos = u/k
 for num = index
     y_values(num) = position;
 
-    acceleration = (u - (b*velocity) - (k*position))/m;
+    acceleration = (u - (0*velocity) - (k*position))/m;
 
     velocity = velocity + acceleration * dt;
     position = position + velocity * dt;
@@ -43,9 +43,10 @@ for num = index
 end
 
 %plotting
+
+plot(time,y_values, "r")
 xlabel("time(s)");
 ylabel("position(m)")
-plot(time,y_values, "r")
 
 hold on
 
