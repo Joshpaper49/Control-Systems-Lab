@@ -11,11 +11,21 @@
 % *tau* is time constant
 % *dt* is delta time
 % *time_end* is the upper bound of time range
+%   time_end is a selected value * tau so that the simulation
+%   will end around a certain percentage of the final value
+%   note: 5 will have the simulation end around 99.3% of the final value
+
+
 
 %motion entries calls
-[y1, t1] = updateSpeedFunction(5, -10, 0.1, 0.01, 5);
-[y2, t2] = updateSpeedFunction(5, -10, 0.5, 0.01, 5);
-[y3, t3] = updateSpeedFunction(5, -10, 7, 0.001, 5);
+u = 5; x = -10; tau = 0.1; dt = 0.01; time_end = 5 * tau;
+[y1, t1] = updateSpeedFunction(u, x, tau, dt, time_end);
+
+u = 5; x = -10; tau = 0.5; dt = 0.01; time_end = 5 * tau;
+[y2, t2] = updateSpeedFunction(u, x, tau, dt, time_end);
+
+u = 5; x = -10; tau = 1; dt = 0.01; time_end = 5 * tau;
+[y3, t3] = updateSpeedFunction(u, x, tau, dt, time_end);
 
 %plotting the motion entries over time
 hold on
