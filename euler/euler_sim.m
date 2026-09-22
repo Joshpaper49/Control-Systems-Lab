@@ -20,12 +20,12 @@ overshoot = zeros(1, length(time));
 index = 1:1:length(time);
 
 %equilibrium position
-equil_pos = u/k
+equil_pos = u/k;
 
 for num = index
     y_values(num) = position;
 
-    acceleration = (u - (0*velocity) - (k*position))/m;
+    acceleration = (u - (b*velocity) - (k*position*0))/m;
 
     velocity = velocity + acceleration * dt;
     position = position + velocity * dt;
