@@ -1,5 +1,5 @@
 u = 1; %force
-b = 2; %damping constant
+b = 1; %damping constant
 k = 0.4; %spring constant
 m = 2; %mass
 dt = 0.02; %timestep
@@ -25,7 +25,7 @@ equil_pos = u/k;
 for num = index
     y_values(num) = position;
 
-    acceleration = (u - (0*velocity) - (k*position))/m;
+    acceleration = (u - (b*velocity) - (k*position))/m;
 
     velocity = velocity + acceleration * dt;
     position = position + velocity * dt;
