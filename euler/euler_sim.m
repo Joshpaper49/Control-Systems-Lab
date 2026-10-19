@@ -1,5 +1,5 @@
 u = 1; %force
-b = 1; %damping constant
+b = 0.4; %damping constant
 k = 0.4; %spring constant
 m = 2; %mass
 dt = 0.02; %timestep

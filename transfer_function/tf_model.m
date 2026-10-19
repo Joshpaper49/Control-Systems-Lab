@@ -4,4 +4,4 @@ k = 0.4;
 
 G = tf(1, [m b k]);
 
-plot(G)
+step(G)
