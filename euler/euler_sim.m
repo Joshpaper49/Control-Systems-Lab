@@ -1,3 +1,5 @@
+
+function [time, y_values] = euler_sim()
 u = 1; %force
 b = 0.4; %damping constant
 k = 0.4; %spring constant
@@ -42,16 +44,18 @@ for num = index
 
 end
 
+end
+
 %plotting
 
-plot(time,y_values, "r")
-xlabel("time(s)");
-ylabel("position(m)")
-
-hold on
-
-overshoot;
-
-peak_indices = find(overshoot ~= 0);
-
-plot(time(peak_indices), y_values(peak_indices), 'b*', 'MarkerSize', 10)
+% plot(time,y_values, "r")
+% xlabel("time(s)");
+% ylabel("position(m)")
+% 
+% hold on
+% 
+% overshoot;
+% 
+% peak_indices = find(overshoot ~= 0);
+% 
+% plot(time(peak_indices), y_values(peak_indices), 'b*', 'MarkerSize', 10)
