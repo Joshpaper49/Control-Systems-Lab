@@ -24,8 +24,10 @@ index = 1:1:length(time);
 %equilibrium position
 equil_pos = u/k;
 
+y_values(1) = position;
+
 for num = index
-    y_values(num) = position;
+
 
     acceleration = (u - (b*velocity) - (k*position))/m;
 
