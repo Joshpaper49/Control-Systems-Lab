@@ -8,6 +8,4 @@ G = tf(1, [m b k]);
 
 [y_values, time] = step(G, time);
 
-%is this working??%
-
 end

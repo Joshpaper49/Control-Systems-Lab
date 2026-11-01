@@ -1,10 +1,10 @@
 
 function [time, y_values] = euler_sim()
 u = 1; %force
-b = 0.4; %damping constant
+b = 0.4; %damping constant -- 0.4
 k = 0.4; %spring constant
 m = 2; %mass
-dt = 0.02; %timestep
+dt = 0.02; %timestep -- 0.02
 position  = 0;
 velocity  = 0;
 acceleration  = 0;
@@ -18,31 +18,29 @@ settle_time = 4/(natural_freq * damping_ratio);
 %preparing data collection
 time = 0:dt:settle_time;
 y_values = zeros(1, length(time));
-overshoot = zeros(1, length(time));
-index = 1:1:length(time);
+%overshoot = zeros(1, length(time));
 
 %equilibrium position
 equil_pos = u/k;
 
-y_values(1) = position;
 
-for num = index
+for num = 1:length(time)
 
-
+    y_values(num) = position;
     acceleration = (u - (b*velocity) - (k*position))/m;
 
     velocity = velocity + acceleration * dt;
     position = position + velocity * dt;
 
     %finding and documenting peaks
-    if num > 2
-        if y_values(num-1) > y_values(num-2) && y_values(num-1) > position
-            calc = ((y_values(num-1) - (equil_pos)) / (equil_pos)) * 100;
-            overshoot(num) = calc;
-        end
-    end    
+    % if num > 2
+    %     if y_values(num-1) > y_values(num-2) && y_values(num-1) > position
+    %         calc = ((y_values(num-1) - (equil_pos)) / (equil_pos)) * 100;
+    %         overshoot(num) = calc;
+    %     end
+    % end    
 
-    y_values(num) = position;
+
 
 end
 
