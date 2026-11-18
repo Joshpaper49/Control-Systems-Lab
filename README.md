@@ -66,6 +66,8 @@ The simulation was run three times with the same initial parameters with the exc
 
 ### Results
 
+![Simulation Plot](images/1stODEplots.png)
+
 As shown by the fact that the red simulation reached the desired value of 5 m/s the fastest, while the blue simulation reached it the latest, it’s confirmed that a smaller time constant produces a faster response.
 
 ### Key Takeaways
