@@ -3,8 +3,10 @@
 ## Lab Status: In Progress
 
 This learning lab explores the modeling and simulation of dynamic systems using MATLAB. Current work includes first-order system responses, spring-mass-damper modeling, numerical integration using Euler methods, and comparisons with continuous-time transfer-function simulations.
+
 The next phase will focus on poles, system stability, and feedback control.
-The goal is to build a stronger understanding of control systems through mathematical modeling, simulation, and experimentation.
+
+**Goal**: build a stronger understanding of control systems through mathematical modeling, simulation, and experimentation.
 
 ## First-Order Speed Response Simulation
 
