@@ -1,4 +1,4 @@
-# Control-Systems-Lab me
+# Control-Systems-Lab
 
 ## Lab Status: In Progress
 
