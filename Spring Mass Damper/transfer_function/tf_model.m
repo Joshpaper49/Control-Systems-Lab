@@ -1,11 +1,12 @@
-function [time, y_values] = tf_model(time)
-
+function [time, p_values] = tf_model(time)
+u = 1;
 m = 2;
 b = 0.4;
 k = 0.4;
 
-G = tf(1, [m b k]);
+% transfer function
+G = tf(u, [m b k]);
 
-[y_values, time] = step(G, time);
+[p_values, time] = step(G, time);
 
 end

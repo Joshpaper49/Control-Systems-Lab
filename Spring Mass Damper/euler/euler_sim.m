@@ -1,61 +1,38 @@
 
-function [time, y_values] = euler_sim()
-u = 1; %force
-b = 0.4; %damping constant -- 0.4
-k = 0.4; %spring constant
-m = 2; %mass
-dt = 0.02; %timestep -- 0.02
-position  = 0;
-velocity  = 0;
-acceleration  = 0;
+function [time, p_values] = euler_sim()
+u = 1; % force
+b = 0.4; % damping constant -- 0.4
+k = 0.4; % spring constant
+m = 2; % mass
+dt = 0.02; % timestep -- 0.02
+p  = 0; % position
+v  = 0; % velocity
+a  = 0; % acceleration
 
-%calculating second-order system characteristics and settling time
+% calculating second-order system characteristics and settling time
 natural_freq = sqrt(k/m);
 damping_ratio = b/(2*sqrt(m*k));
 settle_time = 4/(natural_freq * damping_ratio);
 
 
-%preparing data collection
+% preparing data collection
 time = 0:dt:settle_time;
-y_values = zeros(1, length(time));
-%overshoot = zeros(1, length(time));
+p_values = zeros(1, length(time));
 
-%equilibrium position
+% equilibrium position
 equil_pos = u/k;
+disp('Equilibrium position')
+disp(equil_pos)
 
+% initializing the first index of p_values to 0
+p_values(1) = p;
 
-for num = 1:length(time)
+for num = 2:length(time)
 
-    y_values(num) = position;
-    acceleration = (u - (b*velocity) - (k*position))/m;
+    a = (u - (b*v) - (k*p))/m;
+    v = v + a * dt;
+    p = p + v * dt;
 
-    velocity = velocity + acceleration * dt;
-    position = position + velocity * dt;
-
-    %finding and documenting peaks
-    % if num > 2
-    %     if y_values(num-1) > y_values(num-2) && y_values(num-1) > position
-    %         calc = ((y_values(num-1) - (equil_pos)) / (equil_pos)) * 100;
-    %         overshoot(num) = calc;
-    %     end
-    % end    
-
-
-
+    p_values(num) = p;
 end
-
 end
-
-%plotting
-
-% plot(time,y_values, "r")
-% xlabel("time(s)");
-% ylabel("position(m)")
-% 
-% hold on
-% 
-% overshoot;
-% 
-% peak_indices = find(overshoot ~= 0);
-% 
-% plot(time(peak_indices), y_values(peak_indices), 'b*', 'MarkerSize', 10)
