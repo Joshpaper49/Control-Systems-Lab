@@ -69,7 +69,7 @@ The simulation was run three times with the same initial parameters with the exc
 ### Results
 
 <p align="center">
-  <img src="images/1stODEplot.png" alt=Simulation Plot"" width="600">
+  <img src="images/1stODEplot.png" alt="Simulation Plot" width="600">
 </p>
 
 As shown by the fact that the red simulation reached the desired value of 5 m/s the fastest, while the blue simulation reached it the latest, it’s confirmed that a smaller time constant produces a faster response.
@@ -164,7 +164,9 @@ The compare_models script ran both simulations with the same parameters and plot
 
 ### Results
 
-![eulervstransfer Plot](images/eulervstransfer.png)
+<p align="center">
+  <img src="images/eulervstransfer.png" alt="EulervsTransfer Plot" width="600">
+</p>
 
 Both simulations produced nearly identical position responses over the observed time interval.
 
@@ -174,7 +176,9 @@ The close agreement between the two methods is particularly important for the se
 
 In contrast, MATLAB's transfer-function model represents the continuous-time system and evaluates its step response at the requested time points. Reducing the spacing between these points provides a more detailed plot without changing the underlying continuous-time model.
 
-![errorPlot](images/errorplot.png)
+<p align="center">
+  <img src="images/errorplot.png" alt="Error Plot" width="600">
+</p>
 
 To monitor the differences between the two methods, I plotted the difference between their predicted positions over time.
 
